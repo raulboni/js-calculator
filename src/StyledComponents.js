@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components";
+
 export const GlobalStyle = createGlobalStyle`
 body{
   background-color: ${(props) => props.theme.bg};
@@ -14,15 +15,17 @@ export const themes = {
 export const Title = styled.h1`
   text-align: center;
   color: ${(props) => props.theme.text};
+  font-size: clamp(2rem, 3vw, 4rem);
 `;
 
 export const Container = styled.div`
   max-width: 30rem;
   margin: 0 auto;
+  padding: 2rem;
 `;
 
 export const Calculator = styled.div`
-  margin: 2rem;
+  margin-top: 2rem;
   padding: 2rem;
   background-color: ${(props) => props.theme.bg};
   border: 2px solid ${(props) => props.theme.text};
@@ -33,8 +36,7 @@ export const Screen = styled.div`
   margin-bottom: 1rem;
   background-color: ${(props) => props.theme.screen};
   border: 2px solid ${(props) => props.theme.text};
-
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 2rem);
 `;
 export const Grid = styled.div`
   display: grid;
@@ -47,6 +49,7 @@ export const Button = styled.button`
   grid-row: ${(props) => props.row};
   padding: 1rem;
   border: 1px solid black;
+  font-size: clamp(1rem, 2vw, 1.5rem);
   color: ${(props) => props.theme.text};
   background-color: ${(props) => props.theme.btn};
 `;
