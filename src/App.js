@@ -18,7 +18,7 @@ function App() {
   const [result, setresult] = useState(false);
   function handleOperation() {
     let re = false;
-    const regex = /[1-90.]+/gi;
+    const regex = /[1-90\.]+/gi;
     const regex2 = /[^1-90.]+/gi;
     const nums = operationStr.match(regex);
     let operators = operationStr.match(regex2);
@@ -56,7 +56,7 @@ function App() {
     }
   }
 
-  function handleReset() {
+  function handleClear() {
     setOperationStr("");
     setresult(0);
   }
@@ -65,7 +65,18 @@ function App() {
   }
 
   function add(e) {
-    setOperationStr((prev) => prev + e.target.innerText);
+    if (
+      (e.target.innerText === "." &&
+        /\.\./.test(operationStr + e.target.innerText)) ||
+      (e.target.innerText === "." &&
+        /[0-9]+\.[0-9]\.+/.test(operationStr + e.target.innerText))
+    ) {
+      console.warn("naughty naughty...");
+    } else if (e.target.innerText === "0" && operationStr.length === 0) {
+      console.warn("naughty naughty...");
+    } else {
+      setOperationStr((prev) => prev + e.target.innerText);
+    }
   }
   function handleTheme(e) {
     setTheme(e.target.value);
@@ -85,60 +96,62 @@ function App() {
           </button>
           <Calculator>
             <Screen>
-              <p style={{ fontSize: "0.8rem", padding: "0" }}>
+              <p id="display" style={{ fontSize: "0.8rem", padding: "0" }}>
                 {operationStr ? operationStr : "0"}
               </p>
-              {result ? result : "0"}
+              <p>{result ? result : "0"}</p>
             </Screen>
-            <Button onClick={handleReset}>Reset</Button>
+            <Button id="clear" onClick={handleClear}>
+              Clear
+            </Button>
             <Button onClick={handleDelete}>Delete</Button>
             <Grid>
-              <Button col="4" row="2" onClick={add}>
+              <Button id="zero" col="4" row="2" onClick={add}>
                 0
               </Button>
-              <Button col="1" row="2" onClick={add}>
+              <Button id="one" col="1" row="2" onClick={add}>
                 1
               </Button>
-              <Button col="2" row="2" onClick={add}>
+              <Button id="two" col="2" row="2" onClick={add}>
                 2
               </Button>
-              <Button col="3" row="2" onClick={add}>
+              <Button id="three" col="3" row="2" onClick={add}>
                 3
               </Button>
-              <Button col="1" row="3" onClick={add}>
+              <Button id="four" col="1" row="3" onClick={add}>
                 4
               </Button>
-              <Button col="2" row="3" onClick={add}>
+              <Button id="five" col="2" row="3" onClick={add}>
                 5
               </Button>
-              <Button col="3" row="3" onClick={add}>
+              <Button id="six" col="3" row="3" onClick={add}>
                 6
               </Button>
-              <Button col="1" row="4" onClick={add}>
+              <Button id="seven" col="1" row="4" onClick={add}>
                 7
               </Button>
-              <Button col="2" row="4" onClick={add}>
+              <Button id="eight" col="2" row="4" onClick={add}>
                 8
               </Button>
-              <Button col="3" row="4" onClick={add}>
+              <Button id="nine" col="3" row="4" onClick={add}>
                 9
               </Button>
-              <Button col="4" row="3" onClick={add}>
+              <Button id="decimal" col="4" row="3" onClick={add}>
                 .
               </Button>
-              <Button col="1" row="1" onClick={add}>
+              <Button id="add" col="1" row="1" onClick={add}>
                 +
               </Button>
-              <Button col="2" row="1" onClick={add}>
+              <Button id="subtract" col="2" row="1" onClick={add}>
                 -
               </Button>
-              <Button col="3" row="1" onClick={add}>
+              <Button id="multiply" col="3" row="1" onClick={add}>
                 *
               </Button>
-              <Button col="4" row="1" onClick={add}>
+              <Button id="divide" col="4" row="1" onClick={add}>
                 /
               </Button>
-              <Button col="4" row="4" onClick={handleOperation}>
+              <Button id="equals" col="4" row="4" onClick={handleOperation}>
                 =
               </Button>
             </Grid>
