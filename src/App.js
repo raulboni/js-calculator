@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { blue, green } from "./Theme";
+
 import {
+  GlobalStyle,
+  themes,
   Container,
   Title,
   Calculator,
@@ -11,7 +13,7 @@ import {
 } from "./StyledComponents";
 
 function App() {
-  const [theme, setTheme] = useState(blue);
+  const [theme, setTheme] = useState("light");
   const [operationStr, setOperationStr] = useState("");
   const [result, setresult] = useState(false);
   function handleOperation() {
@@ -65,18 +67,22 @@ function App() {
   function add(e) {
     setOperationStr((prev) => prev + e.target.innerText);
   }
+  function handleTheme(e) {
+    setTheme(e.target.value);
+  }
 
   return (
     <>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={themes[theme]}>
+        <GlobalStyle />
         <Container>
           <Title>Calculator</Title>
-          {theme.id === "blue" ? (
-            <button onClick={() => setTheme(green)}>Change Theme</button>
-          ) : (
-            <button onClick={() => setTheme(blue)}>Change Theme</button>
-          )}
-
+          <button value="dark" onClick={handleTheme}>
+            Dark
+          </button>
+          <button value="light" onClick={handleTheme}>
+            Light
+          </button>
           <Calculator>
             <Screen>
               <p style={{ fontSize: "0.8rem", padding: "0" }}>
