@@ -14,7 +14,7 @@ import {
 } from "./StyledComponents";
 
 function App() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState("blue");
   const [operationStr, setOperationStr] = useState("");
   const [result, setresult] = useState(false);
   function handleOperation() {
@@ -88,19 +88,32 @@ function App() {
         <Container>
           <Title>Calculator</Title>
           <ThemeButton
-            bg="#1A1C53"
+            bg="#222339"
             color="white"
-            value="dark"
+            value="purple"
             onClick={handleTheme}
           >
-            Dark
+            Purple
           </ThemeButton>
-          <button value="light" onClick={handleTheme}>
-            Light
-          </button>
+          <ThemeButton
+            bg="#DFEAF5"
+            color="Black"
+            value="blue"
+            onClick={handleTheme}
+          >
+            Blue
+          </ThemeButton>
+          <ThemeButton
+            bg="#f5cce8"
+            color="Black"
+            value="pink"
+            onClick={handleTheme}
+          >
+            Pink
+          </ThemeButton>
           <Calculator>
             <Screen>
-              <p id="display" style={{ fontSize: "0.8rem", padding: "0" }}>
+              <p id="display" style={{ fontSize: "1rem", padding: "0" }}>
                 {operationStr ? operationStr : "0"}
               </p>
               <p>{result ? result : "0"}</p>

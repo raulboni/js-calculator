@@ -9,8 +9,9 @@ body{
 `;
 
 export const themes = {
-  light: { bg: "#DFEAF5", text: "black", btn: "#E3E9CF", screen: "white" },
-  dark: { bg: "#222339", text: "white", btn: "#1A1C53", screen: "black" },
+  blue: { bg: "#C1DFEA", text: "black", btn: "#98C4D4", screen: "white" },
+  purple: { bg: "#584271 ", text: "white", btn: "#28143F", screen: "black" },
+  pink: { bg: "#f5cce8", text: "#4a2040", btn: "#ec9ded", screen: "white" },
 };
 export const Title = styled.h1`
   text-align: center;
