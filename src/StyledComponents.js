@@ -24,6 +24,14 @@ export const Container = styled.div`
   padding: 2rem;
 `;
 
+export const ThemeButton = styled.button`
+  padding: 0.5rem 1rem;
+  border: 1px solid black;
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  color: ${(props) => props.color};
+  background-color: ${(props) => props.bg};
+`;
+
 export const Calculator = styled.div`
   margin-top: 2rem;
   padding: 2rem;

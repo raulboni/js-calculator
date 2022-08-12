@@ -6,6 +6,7 @@ import {
   themes,
   Container,
   Title,
+  ThemeButton,
   Calculator,
   Screen,
   Grid,
@@ -71,9 +72,7 @@ function App() {
       (e.target.innerText === "." &&
         /[0-9]+\.[0-9]\.+/.test(operationStr + e.target.innerText))
     ) {
-      console.warn("naughty naughty...");
     } else if (e.target.innerText === "0" && operationStr.length === 0) {
-      console.warn("naughty naughty...");
     } else {
       setOperationStr((prev) => prev + e.target.innerText);
     }
@@ -88,9 +87,14 @@ function App() {
         <GlobalStyle />
         <Container>
           <Title>Calculator</Title>
-          <button value="dark" onClick={handleTheme}>
+          <ThemeButton
+            bg="#1A1C53"
+            color="white"
+            value="dark"
+            onClick={handleTheme}
+          >
             Dark
-          </button>
+          </ThemeButton>
           <button value="light" onClick={handleTheme}>
             Light
           </button>
