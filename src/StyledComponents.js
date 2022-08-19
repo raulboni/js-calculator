@@ -31,11 +31,20 @@ export const ButtonContainer = styled.div`
   justify-content: space-evenly;
 `;
 export const ThemeButton = styled.button`
+  cursor: pointer;
   padding: 0.5rem 1rem;
-  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: none;
   font-size: clamp(1rem, 2vw, 1.5rem);
   color: ${(props) => props.color};
   background-color: ${(props) => props.bg};
+  transition-property: transform;
+  transition-duration: 100ms;
+
+  &:hover {
+    transform: scale(1.1);
+    transform: rotate3d(1, 1, 1, 15deg);
+  }
 `;
 
 export const Calculator = styled.div`
@@ -59,6 +68,7 @@ export const Grid = styled.div`
 `;
 
 export const Button = styled.button`
+  cursor: pointer;
   grid-column: ${(props) => props.col};
   grid-row: ${(props) => props.row};
   padding: 1rem;
