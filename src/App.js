@@ -5,6 +5,7 @@ import {
   GlobalStyle,
   themes,
   Container,
+  ButtonContainer,
   Title,
   ThemeButton,
   Calculator,
@@ -87,30 +88,41 @@ function App() {
         <GlobalStyle />
         <Container>
           <Title>Calculator</Title>
-          <ThemeButton
-            bg="#222339"
-            color="white"
-            value="purple"
-            onClick={handleTheme}
-          >
-            Purple
-          </ThemeButton>
-          <ThemeButton
-            bg="#DFEAF5"
-            color="Black"
-            value="blue"
-            onClick={handleTheme}
-          >
-            Blue
-          </ThemeButton>
-          <ThemeButton
-            bg="#f5cce8"
-            color="Black"
-            value="pink"
-            onClick={handleTheme}
-          >
-            Pink
-          </ThemeButton>
+          <ButtonContainer>
+            <ThemeButton
+              bg="#584271"
+              color="white"
+              value="purple"
+              onClick={handleTheme}
+            >
+              Purple
+            </ThemeButton>
+            <ThemeButton
+              bg="#C1DFEA"
+              color="Black"
+              value="blue"
+              onClick={handleTheme}
+            >
+              Blue
+            </ThemeButton>
+            <ThemeButton
+              bg="#f5cce8"
+              color="Black"
+              value="pink"
+              onClick={handleTheme}
+            >
+              Pink
+            </ThemeButton>
+
+            <ThemeButton
+              bg="#91811d"
+              color="#c9c9c9"
+              value="gold"
+              onClick={handleTheme}
+            >
+              Gold
+            </ThemeButton>
+          </ButtonContainer>
           <Calculator>
             <Screen>
               <p id="display" style={{ fontSize: "1rem", padding: "0" }}>

@@ -9,9 +9,10 @@ body{
 `;
 
 export const themes = {
-  blue: { bg: "#C1DFEA", text: "black", btn: "#98C4D4", screen: "white" },
+  blue: { bg: "#C1DFEA", text: "#0c213c", btn: "#98C4D4", screen: "white" },
   purple: { bg: "#584271 ", text: "white", btn: "#28143F", screen: "black" },
   pink: { bg: "#f5cce8", text: "#4a2040", btn: "#ec9ded", screen: "white" },
+  gold: { bg: "#91811d", text: "#c9c9c9", btn: "#47411a", screen: "black" },
 };
 export const Title = styled.h1`
   text-align: center;
@@ -25,6 +26,10 @@ export const Container = styled.div`
   padding: 2rem;
 `;
 
+export const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
 export const ThemeButton = styled.button`
   padding: 0.5rem 1rem;
   border: 1px solid black;
